@@ -12,7 +12,7 @@
     <contextName>wongH</contextName>
 
     <!--文件夹在当前项目磁盘根目录-->
-    <property name="LOG_PATH" value="/wongH_springboot2.0.0_log" />
+    <property name="LOG_PATH" value="/wongH_springboot2.0_log" />
     <!--设置系统日志目录-->
     <property name="APPDIR" value="logs" />
 
@@ -165,7 +165,7 @@
 
     <logger name="org.springframework" level="WARN" />
     <!-- mybatis日志打印 -->
-    <logger name="com.ibatis" level="TRACE" />
+    <logger name="com.ibatis" level="DEBUG" />
     <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
     <logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" />
     <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
