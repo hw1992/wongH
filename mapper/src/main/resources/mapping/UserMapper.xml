@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wong.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wong.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="BIGINT" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="book_class" jdbcType="VARCHAR" property="bookClass" />
+    <result column="wechat_user_id" jdbcType="INTEGER" property="wechatUserId" />
+    <result column="qq_user_id" jdbcType="INTEGER" property="qqUserId" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="book_cnt" jdbcType="SMALLINT" property="bookCnt" />
+    <result column="device_type" jdbcType="TINYINT" property="deviceType" />
+    <result column="header" jdbcType="VARCHAR" property="header" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="photoes" jdbcType="VARCHAR" property="photoes" />
+    <result column="longitude" jdbcType="REAL" property="longitude" />
+    <result column="latitude" jdbcType="REAL" property="latitude" />
+    <result column="balance" jdbcType="INTEGER" property="balance" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, mobile, password, book_class, wechat_user_id, qq_user_id, channel_id, book_cnt, 
+    device_type, header, nickname, gender, birthday, signature, photoes, longitude, latitude, 
+    balance, uuid, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wong.entity.User" useGeneratedKeys="true" keyProperty="id">
+    insert into user (id, mobile, password, 
+      book_class, wechat_user_id, qq_user_id, 
+      channel_id, book_cnt, device_type, 
+      header, nickname, gender, 
+      birthday, signature, photoes, 
+      longitude, latitude, balance, 
+      uuid, create_time)
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, 
+      #{bookClass,jdbcType=VARCHAR}, #{wechatUserId,jdbcType=INTEGER}, #{qqUserId,jdbcType=INTEGER}, 
+      #{channelId,jdbcType=VARCHAR}, #{bookCnt,jdbcType=SMALLINT}, #{deviceType,jdbcType=TINYINT}, 
+      #{header,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{birthday,jdbcType=DATE}, #{signature,jdbcType=VARCHAR}, #{photoes,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=REAL}, #{latitude,jdbcType=REAL}, #{balance,jdbcType=INTEGER}, 
+      #{uuid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wong.entity.User" useGeneratedKeys="true" keyProperty="id">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="bookClass != null">
+        book_class,
+      </if>
+      <if test="wechatUserId != null">
+        wechat_user_id,
+      </if>
+      <if test="qqUserId != null">
+        qq_user_id,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="bookCnt != null">
+        book_cnt,
+      </if>
+      <if test="deviceType != null">
+        device_type,
+      </if>
+      <if test="header != null">
+        header,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="photoes != null">
+        photoes,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bookClass != null">
+        #{bookClass,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatUserId != null">
+        #{wechatUserId,jdbcType=INTEGER},
+      </if>
+      <if test="qqUserId != null">
+        #{qqUserId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookCnt != null">
+        #{bookCnt,jdbcType=SMALLINT},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="header != null">
+        #{header,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="photoes != null">
+        #{photoes,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=REAL},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wong.entity.User">
+    update user
+    <set>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bookClass != null">
+        book_class = #{bookClass,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatUserId != null">
+        wechat_user_id = #{wechatUserId,jdbcType=INTEGER},
+      </if>
+      <if test="qqUserId != null">
+        qq_user_id = #{qqUserId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookCnt != null">
+        book_cnt = #{bookCnt,jdbcType=SMALLINT},
+      </if>
+      <if test="deviceType != null">
+        device_type = #{deviceType,jdbcType=TINYINT},
+      </if>
+      <if test="header != null">
+        header = #{header,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="photoes != null">
+        photoes = #{photoes,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=REAL},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wong.entity.User">
+    update user
+    set mobile = #{mobile,jdbcType=BIGINT},
+      password = #{password,jdbcType=VARCHAR},
+      book_class = #{bookClass,jdbcType=VARCHAR},
+      wechat_user_id = #{wechatUserId,jdbcType=INTEGER},
+      qq_user_id = #{qqUserId,jdbcType=INTEGER},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      book_cnt = #{bookCnt,jdbcType=SMALLINT},
+      device_type = #{deviceType,jdbcType=TINYINT},
+      header = #{header,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=DATE},
+      signature = #{signature,jdbcType=VARCHAR},
+      photoes = #{photoes,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=REAL},
+      latitude = #{latitude,jdbcType=REAL},
+      balance = #{balance,jdbcType=INTEGER},
+      uuid = #{uuid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="login" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where mobile = #{mobile,jdbcType=BIGINT}
+    and password = #{password,jdbcType=VARCHAR}
+  </select>
+</mapper>

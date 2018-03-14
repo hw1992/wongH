@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wong.mapper.BookInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wong.entity.BookInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="isbn" jdbcType="BIGINT" property="isbn" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="subtitle" jdbcType="VARCHAR" property="subtitle" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="publisher" jdbcType="VARCHAR" property="publisher" />
+    <result column="pubdate" jdbcType="VARCHAR" property="pubdate" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="book_class" jdbcType="INTEGER" property="bookClass" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
+    <result column="author_intro" jdbcType="VARCHAR" property="authorIntro" />
+    <result column="share_cnt" jdbcType="INTEGER" property="shareCnt" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, isbn, title, subtitle, img, author, publisher, pubdate, price, book_class, subclass, 
+    summary, catalog, author_intro, share_cnt, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getBookInfos" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from book_info
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from book_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wong.entity.BookInfo">
+    insert into book_info (id, isbn, title, 
+      subtitle, img, author, 
+      publisher, pubdate, price, 
+      book_class, subclass, summary, 
+      catalog, author_intro, share_cnt, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{isbn,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, 
+      #{subtitle,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{publisher,jdbcType=VARCHAR}, #{pubdate,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{bookClass,jdbcType=INTEGER}, #{subclass,jdbcType=INTEGER}, #{summary,jdbcType=VARCHAR}, 
+      #{catalog,jdbcType=VARCHAR}, #{authorIntro,jdbcType=VARCHAR}, #{shareCnt,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wong.entity.BookInfo">
+    insert into book_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="isbn != null">
+        isbn,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="subtitle != null">
+        subtitle,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="publisher != null">
+        publisher,
+      </if>
+      <if test="pubdate != null">
+        pubdate,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="bookClass != null">
+        book_class,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="catalog != null">
+        catalog,
+      </if>
+      <if test="authorIntro != null">
+        author_intro,
+      </if>
+      <if test="shareCnt != null">
+        share_cnt,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isbn != null">
+        #{isbn,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null">
+        #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="pubdate != null">
+        #{pubdate,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="bookClass != null">
+        #{bookClass,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="catalog != null">
+        #{catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIntro != null">
+        #{authorIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCnt != null">
+        #{shareCnt,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wong.entity.BookInfo">
+    update book_info
+    <set>
+      <if test="isbn != null">
+        isbn = #{isbn,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        subtitle = #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null">
+        publisher = #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="pubdate != null">
+        pubdate = #{pubdate,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="bookClass != null">
+        book_class = #{bookClass,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        subclass = #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="catalog != null">
+        catalog = #{catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="authorIntro != null">
+        author_intro = #{authorIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCnt != null">
+        share_cnt = #{shareCnt,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wong.entity.BookInfo">
+    update book_info
+    set isbn = #{isbn,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      subtitle = #{subtitle,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      pubdate = #{pubdate,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      book_class = #{bookClass,jdbcType=INTEGER},
+      subclass = #{subclass,jdbcType=INTEGER},
+      summary = #{summary,jdbcType=VARCHAR},
+      catalog = #{catalog,jdbcType=VARCHAR},
+      author_intro = #{authorIntro,jdbcType=VARCHAR},
+      share_cnt = #{shareCnt,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
