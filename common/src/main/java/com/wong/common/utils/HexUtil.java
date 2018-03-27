@@ -1,4 +1,4 @@
-package com.wong.common.normalUtils;
+package com.wong.common.utils;
 
 /**
  * This class provides convenient functions to convert hex string to byte array and vice versa.

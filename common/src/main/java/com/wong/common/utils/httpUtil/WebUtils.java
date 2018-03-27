@@ -1,4 +1,4 @@
-package com.wong.common.normalUtils.httpUtil;
+package com.wong.common.utils.httpUtil;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;

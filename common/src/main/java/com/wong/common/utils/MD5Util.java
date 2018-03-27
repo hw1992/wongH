@@ -1,4 +1,4 @@
-package com.wong.common.normalUtils;
+package com.wong.common.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

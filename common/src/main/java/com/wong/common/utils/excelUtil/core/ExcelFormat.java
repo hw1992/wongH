@@ -1,7 +1,7 @@
-package com.wong.common.normalUtils.excelUtil.core;
+package com.wong.common.utils.excelUtil.core;
 
-import com.wong.common.normalUtils.excelUtil.constant.ExcelType;
-import com.wong.common.normalUtils.excelUtil.util.BeanUtils;
+import com.wong.common.utils.excelUtil.constant.ExcelType;
+import com.wong.common.utils.excelUtil.util.BeanUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;

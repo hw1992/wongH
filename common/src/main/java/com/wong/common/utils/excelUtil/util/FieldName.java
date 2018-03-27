@@ -1,4 +1,4 @@
-package com.wong.common.normalUtils.excelUtil.util;
+package com.wong.common.utils.excelUtil.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

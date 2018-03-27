@@ -1,4 +1,4 @@
-package com.wong.common.normalUtils.excelUtil.constant;
+package com.wong.common.utils.excelUtil.constant;
 
 /**
  * 定义excel格式
